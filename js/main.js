@@ -187,7 +187,8 @@ console.log('******************** Övningar: DOM och events ********************
 Använd getElementById och innerHTML
 */
 
-
+document.getElementById("title").innerHTML = 
+"Learning how to handle JS DOM and events";
 
 
 /* 
@@ -198,7 +199,12 @@ Googla hur man tar bort/lägger till klasser på element, med JS.
 
 Använd getElementsByTagName för att först hämta alla element, samt for-loop för att ersätta alla klasser
 */
-
+let greenBoxElement = document.getElementsByTagName('div');
+console.log(greenBoxElement);
+for (let i = 0; i < greenBoxElement.length; i++) {
+    greenBoxElement[i].classList.replace('box', 'green-box');   
+}
+console.log(greenBoxElement);
 
 
 
@@ -212,7 +218,13 @@ Googla hur man ändrar ett elements höjd och bredd i JS.
 Använd getElementsByClassName för att först hämta alla element, samt for-loop för att göra ändringen
 
 */
-
+let biggerElments = document.getElementsByClassName("green-box");
+console.log(biggerElments);
+for (let i = 0; i < biggerElments.length; i++) {
+    biggerElments[i].style.height = "120px";
+    biggerElments[i].style.width = "120px";
+}
+console.log(biggerElments);
 
 
 
@@ -225,7 +237,9 @@ Ge box 5 en orange border.
 Använd querySelector för att först hämta elementet
 */
 
-
+let orangeBorderBox = document.querySelectorAll("div.green-box");
+console.log(orangeBorderBox);
+orangeBorderBox[4].style.borderColor = "orange";
 
 
 
@@ -239,7 +253,13 @@ Använd createElement för att skapa den nya länken
 Använd appendChild för att lägga till länken till den beiga boxen
 */
 
-
+let linkBox = document.getElementById("link").parentNode;
+console.log(linkBox);
+let newLink = document.createElement("a");
+newLink.href = "#";
+let newLinkText = document.createTextNode("My second link :)");
+newLink.appendChild(newLinkText);
+linkBox.appendChild(newLink)
 
 /* 
 6)
@@ -249,7 +269,8 @@ Lägg till attributet target med värdet _blank' till den nya länken
 
 Använd setAttribute för att lägga till de nya attributen
 */
-
+newLink.setAttribute("href", "#####"); 
+newLink.setAttribute("target", "_blank");
 
 
 /* 
@@ -261,7 +282,12 @@ Lägg till attributet src med ett frivilligt värdet
 Lägg till attributet width med värdet 100
 Lägg till attributet height med värdet 100
 */
-
+let newImg = document.createElement("img");
+newImg.src = " ";
+newImg.width = "100";
+newImg.height = "100";
+document.getElementById("content").appendChild(newImg); 
+console.log(newImg);
 
 
 
@@ -271,7 +297,7 @@ Lägg till attributet height med värdet 100
 Lägg till en eventlistener 'mouseover' på din bild, som skriver ut en text via alert();
 */
 
-
+newImg.addEventListener("mouseover", function(){alert("En bild.")});
 
 
 
